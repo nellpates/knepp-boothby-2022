@@ -22,4 +22,5 @@ manage.packages <- function(packages){
 
 # workspace.R
 
-manage.packages(c("gdata","ape","pez", "vegan", "rstanarm", "quantreg", "adespatial", "dplyr", "viridis", "DescTools", "ggpubr", "scales", "mapview", "leaflet", "stringr", "tidyr", "parallel", "iNEXT", "car"))
+manage.packages(c("gdata","ape","pez", "vegan", "rstanarm", "quantreg", "adespatial", "dplyr", "viridis", "DescTools", "ggpubr", "scales", "mapview", "leaflet", "stringr", "tidyr", "parallel", "iNEXT", "car", "powerjoin", "IgAScores", "gridExtra"))
+
