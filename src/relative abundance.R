@@ -102,14 +102,21 @@ boothby_prop2022$n <- 1:nrow(boothby_prop2022)
 boothby_prop2023$n <- 1:nrow(boothby_prop2023)
 boothby_prop2024$n <- 1:nrow(boothby_prop2024)
 
+knepp_prop2022$pKnepp <- knepp_prop2022$pKnepp*100
+knepp_prop2023$pKnepp <- knepp_prop2023$pKnepp*100
+knepp_prop2024$pKnepp <- knepp_prop2024$pKnepp*100
+
+boothby_prop2022$pBoothby <- boothby_prop2022$pBoothby*100
+boothby_prop2023$pBoothby <- boothby_prop2023$pBoothby*100
+boothby_prop2024$pBoothby <- boothby_prop2024$pBoothby*100
+
 # Whittaker plot:
 
 par(mfrow = c(2,1))
 par(mar=c(2,6,2,6))
 
-
-plot(knepp_prop2022$pKnepp, type = "l", xlim = c(1,290), ylim = c(0,0.13), cex.lab = 1.5,
-     lwd = 2, col = "red4", pch = 5, cex = 0.8, xlab = "Species rank", ylab = "Relative abundance", bty = "n", xaxt = "n", yaxt = "n")
+plot(knepp_prop2022$pKnepp, type = "l", xlim = c(1,290), ylim = c(0,12), cex.lab = 1.5,
+     lwd = 2, col = "red4", pch = 5, cex = 0.8, xlab = "Species rank", ylab = "Relative abundance (%)", bty = "n", xaxt = "n", yaxt = "n")
 box("plot", bty = "l", lwd = 2)
 axis(side = 1, lwd = 0, lwd.ticks = 2, cex.axis = 1.5)
 axis(side = 2, lwd = 0, lwd.ticks = 2, las = 0, cex.axis = 1.5)
@@ -132,10 +139,13 @@ legend(x = "topright", legend=c("Knepp 2022", "Knepp 2023", "Knepp 2024"),
 
 
 par(mar=c(6,6,2,6))
+summary(kmodel2022)
+summary(kmodel2023)
+summary(kmodel2024)
 
 
-plot(boothby_prop2022$pBoothby, type = "l", xlim = c(1,290), ylim = c(0,0.13), cex.lab = 1.5,
-     lwd = 2, col = "royalblue4", pch = 1, cex = 0.8, xlab = "Species rank", ylab = "Relative abundance", bty = "n", xaxt = "n", yaxt = "n")
+plot(boothby_prop2022$pBoothby, type = "l", xlim = c(1,290), ylim = c(0,12), cex.lab = 1.5,
+     lwd = 2, col = "royalblue4", pch = 1, cex = 0.8, xlab = "Species rank", ylab = "Relative abundance (%)", bty = "n", xaxt = "n", yaxt = "n")
 box("plot", bty = "l", lwd = 2)
 axis(side = 1, lwd = 0, lwd.ticks = 2, cex.axis = 1.5)
 axis(side = 2, lwd = 0, lwd.ticks = 2, las = 0, cex.axis = 1.5)
@@ -154,41 +164,7 @@ abline(bmodel2024, col = "lightblue")
 legend(x = "topright", legend=c("Boothby 2022", "Boothby 2023", "Boothby 2024"),
        col=c("royalblue4", "royalblue2", "lightblue"), lty=1, lwd=3, cex=1.5, title="Data", text.font=1)
 
-# Local regression: Loess?
-dev.off()
-par(mfrow = c(2,1))
-par(mar=c(2,6,2,6))
-
-plot(knepp_prop2022$pKnepp,type = "p", xlim = c(1,290), ylim = c(0,0.13), cex.lab = 1.5, cex.axis = 1.5,
-     lwd = 2, col = "white", pch = 1, cex = 0.8, xlab = "Species rank", ylab = "Relative abundance")
-kmodel2022 <- loess(knepp_prop2022$pKnepp~knepp_prop2022$n)
-lines.loess(kmodel2022, col = "red4")
-
-kmodel2023 <- loess(knepp_prop2023$pKnepp~knepp_prop2023$n)
-lines.loess(kmodel2023, col = "red3")
-
-kmodel2024 <- loess(knepp_prop2024$pKnepp~knepp_prop2024$n)
-lines.loess(kmodel2024, col= "red")
-
-legend(x = "topright", legend=c("Knepp 2022", "Knepp 2023", "Knepp 2024"),
-       col=c("red4", "red3", "red"), lty=1, lwd=3, cex=1.5, title="Data", text.font=1)
-
-par(mar=c(6,6,2,6))
-
-plot(boothby_prop2022$pBoothby, type = "p", xlim = c(1,290), ylim = c(0,0.13), cex.lab = 1.5, cex.axis = 1.5,
-     lwd = 2, col = c(alpha = 0.5, "white"), pch = 1, cex = 0.8, xlab = "Species rank", ylab = "Relative abundance")
-bmodel2022 <- loess(boothby_prop2022$pBoothby~boothby_prop2022$n)
-lines.loess(bmodel2022, col = "royalblue4", conf.level = 0.95)
-
-bmodel2023 <- loess(boothby_prop2023$pBoothby~boothby_prop2023$n, family = "gaussian", method = "loess")
-lines.loess(bmodel2023, col = "royalblue2")
-
-bmodel2024 <- loess(boothby_prop2024$pBoothby~boothby_prop2024$n)
-lines.loess(bmodel2024, col = "lightblue")
-
-legend(x = "topright", legend=c("Boothby 2022", "Boothby 2023", "Boothby 2024"),
-       col=c("royalblue4", "royalblue2", "lightblue"), lty=1, lwd=3, cex=1.5, title="Data", text.font=1)
-
-
-
+summary(bmodel2022)
+summary(bmodel2023)
+summary(bmodel2024)
 

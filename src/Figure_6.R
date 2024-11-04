@@ -171,7 +171,7 @@ b.nearest.2_2024 <- subset(b.nearest.red2024, b.nearest.red2024$p == 0)
 
 kneppSR <- ggplot(k.richness.red2022, aes(x = name, y = value, fill = name))+
   xlab("")+ # Manage x and y labs depending on layout of final Fig
-  ylab("Proportion of variance")+
+  ylab("")+
   scale_y_continuous(limits = c(0,1), breaks = seq(0, 1, by = .2))+ # to make all figures comparable and neat
   geom_point( # plot the significant results with one colour
     shape = 21, fill="red3", color="black", size=4, stroke = 1,
@@ -208,14 +208,15 @@ kneppSR <- ggplot(k.richness.red2022, aes(x = name, y = value, fill = name))+
     position = position_nudge(x=0.2)
   )+
   theme_classic()+
-  theme(text = element_text(size = 17))# increase font sizes
+  theme(axis.text.x = element_blank())+
+  theme(text = element_text(size = 20))# increase font sizes
 
 
 # Plot SR 2022, 2023, 2024 at Boothby
 
 boothbySR <- ggplot(b.richness.red2022, aes(x = name, y = value, fill = name))+
   xlab("")+ # Manage x and y labs depending on layout of final Fig
-  ylab("Proportion of variance")+
+  ylab("")+
   scale_y_continuous(limits = c(0,1), breaks = seq(0, 1, by = .2))+ # to make all figures comparable and neat
   geom_point( # plot the significant results with one colour
     shape = 21, fill="royalblue4", color="black", size=4, stroke = 1,
@@ -252,7 +253,8 @@ boothbySR <- ggplot(b.richness.red2022, aes(x = name, y = value, fill = name))+
     position = position_nudge(x=0.2)
   )+
   theme_classic()+
-  theme(text = element_text(size = 17))# increase font sizes
+  theme(axis.text.x = element_blank())+
+  theme(text = element_text(size = 20))# increase font sizes
 
 
 # ----------------------------------------------------------------------------#
@@ -262,7 +264,7 @@ boothbySR <- ggplot(b.richness.red2022, aes(x = name, y = value, fill = name))+
 
 kneppPD <- ggplot(k.phylo.red2022, aes(x = name, y = value, fill = name))+
   xlab("")+ # Manage x and y labs depending on layout of final Fig
-  ylab("Proportion of variance")+
+  ylab("")+
   scale_y_continuous(limits = c(0,1), breaks = seq(0, 1, by = .2))+ # to make all figures comparable and neat
   geom_point( # plot the significant results with one colour
     shape = 21, fill="red3", color="black", size=4, stroke = 1,
@@ -299,14 +301,15 @@ kneppPD <- ggplot(k.phylo.red2022, aes(x = name, y = value, fill = name))+
     position = position_nudge(x=0.2)
   )+
   theme_classic()+
-  theme(text = element_text(size = 17))# increase font sizes
+  theme(axis.text.x = element_blank())+
+  theme(text = element_text(size = 20))# increase font sizes
 
 
 # Plot PD 2022, 2023, 2024 at Boothby
 
 boothbyPD <- ggplot(b.phylo.red2022, aes(x = name, y = value, fill = name))+
   xlab("")+ # Manage x and y labs depending on layout of final Fig
-  ylab("Proportion of variance")+
+  ylab("")+
   scale_y_continuous(limits = c(0,1), breaks = seq(0, 1, by = .2))+ # to make all figures comparable and neat
   geom_point( # plot the significant results with one colour
     shape = 21, fill="royalblue4", color="black", size=4, stroke = 1,
@@ -343,7 +346,8 @@ boothbyPD <- ggplot(b.phylo.red2022, aes(x = name, y = value, fill = name))+
     position = position_nudge(x=0.2)
   )+
   theme_classic()+
-  theme(text = element_text(size = 17))# increase font sizes
+  theme(axis.text.x = element_blank())+
+  theme(text = element_text(size = 20))# increase font sizes
 
 
 # ----------------------------------------------------------------------------#
@@ -353,7 +357,7 @@ boothbyPD <- ggplot(b.phylo.red2022, aes(x = name, y = value, fill = name))+
 
 kneppMPD <- ggplot(k.pairwise.red2022, aes(x = name, y = value, fill = name))+
   xlab("")+ # Manage x and y labs depending on layout of final Fig
-  ylab("Proportion of variance")+
+  ylab("")+
   scale_y_continuous(limits = c(0,1), breaks = seq(0, 1, by = .2))+ # to make all figures comparable and neat
   geom_point( # plot the significant results with one colour
     shape = 21, fill="red3", color="black", size=4, stroke = 1,
@@ -361,6 +365,7 @@ kneppMPD <- ggplot(k.pairwise.red2022, aes(x = name, y = value, fill = name))+
     show.legend = FALSE,
     position = position_nudge(x=-0.2)
   ) +
+  theme(axis.ticks.x = element_blank())+
   geom_point( # plot  other results with a different colour
     shape = 21, fill="white", color="black", size=4,
     data = k.pairwise.2_2022, 
@@ -390,14 +395,14 @@ kneppMPD <- ggplot(k.pairwise.red2022, aes(x = name, y = value, fill = name))+
     position = position_nudge(x=0.2)
   )+
   theme_classic()+
-  theme(text = element_text(size = 17))# increase font sizes
-
+  theme(axis.text.x = element_blank())+
+  theme(text = element_text(size = 20))# increase font sizes
 
 # Plot SES MPD 2022, 2023, 2024 at Boothby
 
 boothbyMPD <- ggplot(b.pairwise.red2022, aes(x = name, y = value, fill = name))+
   xlab("")+ # Manage x and y labs depending on layout of final Fig
-  ylab("Proportion of variance")+
+  ylab("")+
   scale_y_continuous(limits = c(0,1), breaks = seq(0, 1, by = .2))+ # to make all figures comparable and neat
   geom_point( # plot the significant results with one colour
     shape = 21, fill="red", color="black", size=4, stroke = 1,
@@ -434,7 +439,8 @@ boothbyMPD <- ggplot(b.pairwise.red2022, aes(x = name, y = value, fill = name))+
     position = position_nudge(x=0.2)
   )+
   theme_classic()+
-  theme(text = element_text(size = 17))# increase font sizes
+  theme(axis.text.x = element_blank())+
+  theme(text = element_text(size = 20))# increase font sizes
 
 # ----------------------------------------------------------------------------#
 #### SES MNTD ####
@@ -443,7 +449,7 @@ boothbyMPD <- ggplot(b.pairwise.red2022, aes(x = name, y = value, fill = name))+
 
 kneppMNTD <- ggplot(k.nearest.red2022, aes(x = name, y = value, fill = name))+
   xlab("")+ # Manage x and y labs depending on layout of final Fig
-  ylab("Proportion of variance")+
+  ylab("")+
   scale_y_continuous(limits = c(0,1), breaks = seq(0, 1, by = .2))+ # to make all figures comparable and neat
   geom_point( # plot the significant results with one colour
     shape = 21, fill="red3", color="black", size=4, stroke = 1,
@@ -480,14 +486,14 @@ kneppMNTD <- ggplot(k.nearest.red2022, aes(x = name, y = value, fill = name))+
     position = position_nudge(x=0.2)
   )+
   theme_classic()+
-  theme(text = element_text(size = 17))# increase font sizes
+  theme(text = element_text(size = 20))# increase font sizes
 
 
 # Plot SES MNTD 2022, 2023, 2024 at Boothby
 
 boothbyMNTD <- ggplot(b.nearest.red2022, aes(x = name, y = value, fill = name))+
   xlab("")+ # Manage x and y labs depending on layout of final Fig
-  ylab("Proportion of variance")+
+  ylab("")+
   scale_y_continuous(limits = c(0,1), breaks = seq(0, 1, by = .2))+ # to make all figures comparable and neat
   geom_point( # plot the significant results with one colour
     shape = 21, fill="royalblue4", color="black", size=4, stroke = 1,
@@ -524,11 +530,8 @@ boothbyMNTD <- ggplot(b.nearest.red2022, aes(x = name, y = value, fill = name))+
     position = position_nudge(x=0.2)
   )+
   theme_classic()+
-  theme(text = element_text(size = 17))# increase font sizes
+  theme(text = element_text(size = 20))# increase font sizes
 
-grid.arrange(kneppSR, boothbySR, 
-             kneppPD, boothbyPD, ncol=2)
-library(gridExtra)
 grid.arrange(kneppSR, boothbySR, 
              kneppPD, boothbyPD,
              kneppMPD, boothbyMPD,

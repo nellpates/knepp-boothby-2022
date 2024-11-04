@@ -155,33 +155,33 @@ save.image("clean-data/violinplots2022.RData")
 # Uncomment below for correlation tests for SR and PD
 # KNEPP
 # Shapiro-Wilk normality test for SR
-#shapiro.test(k.rich) # => p = 0.6784
+shapiro.test(k.richness) # => p = 0.5938
 # Shapiro-Wilk normality test for PD
-#shapiro.test(k.pd) # => p = 0.1855
-#hist(k.rich)
-#hist(k.pd)
+shapiro.test(k.phylo) # => p = 0.1181
+hist(k.richness)
+hist(k.phylo)
 
-#ggqqplot(k.rich, ylab = "k.rich")
-#ggqqplot(k.pd, ylab = "k.pd")
+ggqqplot(k.richness, ylab = "k.richness")
+ggqqplot(k.phylo, ylab = "k.phylo")
 
-#cor.test(k.rich, k.pd, method = "pearson")
-# cor 0.8591997
-# t = 9.1979, df = 30, p-value = 3.09e-10
+cor.test(k.richness, k.phylo, method = "spearman")
+# cor 0.8599466
+# t = 9.679, df = 33, p-value = 3.641e-11
 
 # BOOTHBY = not normal data distribution, both heavily right-skewed
 
 # Shapiro-Wilk normality test for SR
-#shapiro.test(b.rich) # => p = 0.000...
+shapiro.test(b.richness) # => p = 0.000...
 # Shapiro-Wilk normality test for PD
-#shapiro.test(b.pd) # => p = 0.000....
-#hist(b.rich)
-#hist(b.pd)
+shapiro.test(b.phylo) # => p = 0.000....
+hist(b.richness)
+hist(b.phylo)
 
-#ggqqplot(b.rich, ylab = "b.rich")
-#ggqqplot(b.pd, ylab = "b.pd")
+ggqqplot(b.richness, ylab = "b.richness")
+ggqqplot(b.phylo, ylab = "b.phlyo")
 
 # if the data are not normally distributed, it’s recommended to use the non-parametric correlation, 
 # including Spearman and Kendall rank-based correlation tests.
-#cor.test(b.rich, b.pd, method = "spearman")
+cor.test(b.richness, b.phylo, method = "spearman")
 # correlation coefficient = rho 0.8643651 
 # S = 11144, p-value = < 2.2e-16

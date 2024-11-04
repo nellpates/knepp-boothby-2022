@@ -148,3 +148,38 @@ b.nearest.red <- as.data.frame(fit.model.boothby(b.nearest))
 names(b.nearest.red)[1] <- "value"
 b.nearest.red$name <- c("Fractal", "Major", "Minor", "Residual")
 
+
+# Uncomment below for correlation tests for SR and PD
+# KNEPP
+# Shapiro-Wilk normality test for SR
+shapiro.test(k.richness) # => p = 3.859e-06
+# Shapiro-Wilk normality test for PD
+shapiro.test(k.phylo) # => p = 0.03519
+hist(k.richness)
+hist(k.phylo)
+
+ggqqplot(k.richness, ylab = "k.richness")
+ggqqplot(k.phylo, ylab = "k.phylo")
+
+cor.test(k.richness, k.phylo, method = "spearman")
+# rho 0.7746581 
+# S = 14608, p-value = 8.938e-16
+
+# BOOTHBY = not normal data distribution, both heavily right-skewed
+
+# Shapiro-Wilk normality test for SR
+shapiro.test(b.richness) # => p = 0.000...
+# Shapiro-Wilk normality test for PD
+shapiro.test(b.phylo) # => p = 0.000....
+hist(b.richness)
+hist(b.phylo)
+
+ggqqplot(b.richness, ylab = "b.richness")
+ggqqplot(b.phylo, ylab = "b.phlyo")
+
+# if the data are not normally distributed, it’s recommended to use the non-parametric correlation, 
+# including Spearman and Kendall rank-based correlation tests.
+cor.test(b.richness, b.phylo, method = "spearman")
+# correlation coefficient = rho 0.9365979 
+# S = 6720.3, p-value = < 2.2e-16
+
